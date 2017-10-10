@@ -1,0 +1,137 @@
+/*
+* @Author: askMeWhy
+* @Date:   2017-09-29 14:47:48
+* @Last Modified by:   smile
+* @Last Modified time: 2017-09-30 09:40:34
+*/
+
+@import '~@/styles/mixins', '~@/styles/variables';
+.ask-check-card {
+	width: 100%;
+	padding: 18px 0;
+	@include flexLayout(flex, normal, center);
+	.acc-title {
+		font-size: 1.8rem;
+		color: map-get($color, 400D3);
+	}
+	.acc-box {
+		margin-left: 30px;
+		font-size: 0;
+		.check-box{
+			display: inline-block;
+			font-size: 0;
+			input[type^='checkbox'].acc-check {
+				display: none;
+				visibility: hidden;
+				opacity: 0;
+				&+label {
+					position: relative;
+					display: inline-block;
+					width: 50px;
+					height: 30px;
+					cursor: pointer;
+					-webkit-transition: background .3 linear;
+					transition: background .3 linear;
+					border-radius: 20px;
+					background-color: map-get($color, 200);
+					-webkit-box-shadow: inset 0 0 4px map-get($color, 400S1);
+					box-shadow: inset 0 0 4px map-get($color, 400S1);
+					&::after {
+						position: absolute;
+						z-index: 1;
+						top: 50%;
+						left: 1px;
+						display: block;
+						width: 28px;
+						height: 28px;
+						margin-top: -14px;
+						content: '';
+						-webkit-transition: -webkit-transform .3s linear;
+						transition: -webkit-transform .3s linear;
+						transition: transform .3s linear;
+						transition: transform .3s linear, -webkit-transform .3s linear;
+						border-radius: 100%;
+						background-color: map-get($color, 200);
+						-webkit-box-shadow: inset 0 0 4px map-get($color, 400);
+						box-shadow: inset 0 0 4px map-get($color, 400);
+					}
+				}
+				&:checked+label {
+					-webkit-transition: background .3 linear;
+					transition: background .3 linear;
+					background-color: map-get($color, 500);
+					&::after {
+						-webkit-transition: -webkit-transform .3s linear;
+						transition: -webkit-transform .3s linear;
+						transition: transform .3s linear;
+						transition: transform .3s linear, -webkit-transform .3s linear;
+						-webkit-transform: translateX(20px);
+						transform: translateX(20px);
+					}
+				}
+				&:disabled+label {
+					-webkit-transition: background .3 linear;
+					transition: background .3 linear;
+					background-color: map-get($color, 400);
+					cursor: not-allowed;
+				}
+			}
+		}
+	}
+}
+
+
+/* input[type^='checkbox'] {
+        display: none;
+        visibility: hidden;
+        opacity: 0;
+    }
+    input[type^='checkbox'] + label {
+        position: relative;
+        width: 20px;
+        height: 20px;
+        margin: 0;
+        cursor: pointer;
+        -webkit-transition: all .3s linear;
+        -o-transition: all .3s linear;
+        -moz-transition: all .3s linear;
+        transition: all .3s linear;
+        -moz-border-radius: 50%;
+             border-radius: 50%;
+        background-color: $cgm-bg-color-1;
+        -webkit-box-shadow: 0 0 2px $pos-border-color-1, 0 0 3px $pos-border-color-1;
+                -moz-box-shadow: 0 0 2px $pos-border-color-1, 0 0 3px $pos-border-color-1;
+             box-shadow: 0 0 2px $pos-border-color-1, 0 0 3px $pos-border-color-1;
+        &:before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            display: block;
+            width: 60%;
+            height: 35%;
+            content: '';
+            -webkit-transition: all .3s linear;
+            -o-transition: all .3s linear;
+            -moz-transition: all .3s linear;
+            transition: all .3s linear;
+            -webkit-transform: translate(-50%, -60%) rotate(-45deg) skewY(-5deg);
+            -moz-transform: translate(-50%, -60%) rotate(-45deg) skewY(-5deg);
+             -ms-transform: translate(-50%, -60%) rotate(-45deg) skewY(-5deg);
+                 transform: translate(-50%, -60%) rotate(-45deg) skewY(-5deg);
+            opacity: 0;
+            border-bottom: 2px solid $pos-border-color-3;
+            border-left: 2px solid $pos-border-color-3;
+            -moz-border-radius: 3px;
+                 border-radius: 3px;
+            background: transparent;
+        }
+    }
+    input[type^='checkbox']:checked + label {
+        background-color: $cgm-color-1;
+        &:before {
+            opacity: 1;
+        }
+    }
+    input[type^='checkbox']:disabled + label {
+        background-color: $pos-bg-color-7;
+    } */

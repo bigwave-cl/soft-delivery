@@ -1,0 +1,135 @@
+/*
+* @Author: askMeWhy
+* @Date:   2017-09-25 11:04:26
+* @Last Modified by:   smile
+* @Last Modified time: 2017-09-26 15:03:09
+*/
+@import '~@/styles/mixins','~@/styles/variables';
+.ask-nav-list{
+	width: 100%;
+	max-height: 100%;
+	.ask-nav-item{
+		border-top: 1px solid map-get($color,200);
+		overflow: hidden;
+		.ask-button{
+			color: map-get($color,200);
+			width: 100%;
+			font-size: 2rem;
+			padding: 12px 28px 12px 36px;
+			background-color: map-get($color,100S);
+			position: relative;
+			z-index: 10;
+			.button-text{
+				@include flexLayout(flex,normal,center);
+				i{
+					-webkit-box-flex: 0;
+					    -ms-flex: 0 0 auto;
+					        flex: 0 0 auto;
+					font-size:1.2rem;
+				}
+				i.left{
+					font-size: 2.2rem;
+				}
+				span{
+					text-align: left;
+					-webkit-box-flex: 1;
+					    -ms-flex: 1 0 auto;
+					        flex: 1 0 auto;
+					width: 140px;
+					white-space: nowrap;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					padding-left: 10px;
+				}
+			}
+		}
+		.sub-bar{
+			position: relative;
+			z-index: 8;
+			/* display: none;*/
+			.ask-button{
+				font-size: 1.8rem;
+				background-color: map-get($color,100S2);
+				padding-left: 56px;
+			}
+			.sub-bar{
+				.ask-button{
+					padding-left: 76px;
+				}
+				.sub-bar{
+					.ask-button{
+						padding-left: 96px;
+					}
+				}
+			}
+		}
+		&.active{
+			&>.ask-button,
+			&>a>.ask-button{
+				color: map-get($color,300);
+			}
+		}
+		&.open{
+			&>.sub-bar{
+				display: block;
+			}
+		}
+		&.hide{
+			&>.sub-bar{
+				display: none;
+			}
+		}
+	}
+	&:not(.sub-bar){
+		overflow-x:hidden;
+		overflow-y:scroll;
+		border-bottom: 1px solid map-get($color,200);
+		&::-webkit-scrollbar {
+			display: none;
+		}
+	}
+}
+
+
+/* 过渡的状态 */
+.side-bar-slide-down-enter-active{
+	-webkit-animation: side-bar-enter .3s ease 1 both;
+	        animation: side-bar-enter .3s ease 1 both;
+	overflow: hidden;
+}
+@-webkit-keyframes side-bar-enter{
+	0%{
+		-webkit-transform: translateY(-50%);
+		        transform: translateY(-50%);
+		opacity: 0;
+	}
+}
+@keyframes side-bar-enter{
+	0%{
+		-webkit-transform: translateY(-50%);
+		        transform: translateY(-50%);
+		opacity: 0;
+	}
+}
+/* 过渡的状态 */
+.side-bar-slide-down-leave-active{
+	-webkit-animation: side-bar-leave .3s cubic-bezier(1.0, 0.5, 0.8, 1.0) 1 both;
+	        animation: side-bar-leave .3s cubic-bezier(1.0, 0.5, 0.8, 1.0) 1 both;
+	overflow: hidden;
+}
+
+@-webkit-keyframes side-bar-leave{
+	100%{
+		-webkit-transform: translateY(-50%);
+		        transform: translateY(-50%);
+		opacity: 0;
+	}
+}
+
+@keyframes side-bar-leave{
+	100%{
+		-webkit-transform: translateY(-50%);
+		        transform: translateY(-50%);
+		opacity: 0;
+	}
+}

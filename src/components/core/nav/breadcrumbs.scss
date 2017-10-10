@@ -1,0 +1,52 @@
+/*
+* @Author: askMeWhy
+* @Date:   2017-09-25 16:13:27
+* @Last Modified by:   smile
+* @Last Modified time: 2017-10-10 14:24:19
+*/
+
+@import '~@/styles/mixins', '~@/styles/variables';
+.section-bar {
+	width: 100%;
+}
+
+.breadcrumbs {
+	width: 100%;
+	.bc-items {
+		width: 100%;
+		padding: 8px 16px;
+		background-color: map-get($color, 200);
+		@include flexLayout(flex, normal, center);
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: normal;
+		-ms-flex-flow: row wrap;
+		flex-flow: row wrap;
+		.bc-item {
+			position: relative;
+			margin: 0 10px;
+			-webkit-box-flex: 0;
+			-ms-flex: 0 0 auto;
+			flex: 0 0 auto;
+			span, a {
+				font-size: 1.8rem;
+				text-decoration: none;
+				color: map-get($color, 400);
+			}
+			a {
+				color: map-get($color, 500);
+			}
+			&:not(:last-child)::after {
+				font-size: 1.6rem;
+				position: absolute;
+				top: 50%;
+				right: -8px;
+				display: block;
+				width: 2px;
+				height: 22px;
+				margin-top: -11px;
+				content: '/';
+				color: map-get($color, 400);
+			}
+		}
+	}
+}

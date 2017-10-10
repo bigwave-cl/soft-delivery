@@ -1,0 +1,38 @@
+/*
+* @Author: askMeWhy
+* @Date:   2017-09-29 10:48:00
+* @Last Modified by:   smile
+* @Last Modified time: 2017-09-29 14:09:09
+*/
+
+@import '~@/styles/mixins', '~@/styles/variables';
+.set-tab-group{
+	width: 100%;
+	height: 100%;
+	padding: 0 30px 10px;
+	.set-tab-body{
+		overflow-y: auto;
+		height: calc(100% - 66px);
+		width: 100%;
+		&::-webkit-scrollbar {
+			width: 10px;
+			background-color: transparent;
+		}
+		&::-webkit-scrollbar-track {
+			border-radius: 0;
+			background-color: map-get($color, 200);
+			/* -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, .2);
+		    box-shadow: inset 0 0 3px rgba(0, 0, 0, .2); */
+		}
+		&::-webkit-scrollbar-thumb {
+			border-radius: 4px;
+			background-color: rgba(map-get($color, 400), .4);
+		}
+		&::-webkit-scrollbar-thumb:hover {
+			background-color: rgba(map-get($color, 400), .6);
+		}
+		&::-webkit-scrollbar-thumb:active {
+			background-color: rgba(map-get($color, 500), 1);
+		}
+	}
+}

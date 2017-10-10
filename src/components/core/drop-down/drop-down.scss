@@ -1,0 +1,96 @@
+/*
+* @Author: askMeWhy
+* @Date:   2017-09-25 16:30:44
+* @Last Modified by:   smile
+* @Last Modified time: 2017-09-26 16:17:58
+*/
+@import '~@/styles/mixins','~@/styles/variables';
+.ask-drop-down{
+	position: relative;
+	.ask-drop-list{
+		position: absolute;
+		top: 100%;
+		right: 0;
+		-webkit-transform-origin: 100% 0;
+		        transform-origin: 100% 0;
+		z-index: 1000;
+		background-color: #fff;
+		min-width: 150px;
+        -webkit-box-shadow: 2px 2px 4px map-get($color,400),-2px 2px 4px map-get($color,400);
+                box-shadow: 2px 2px 4px map-get($color,400),-2px 2px 4px map-get($color,400);
+	}
+	.ask-drop-overlay{
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: rgba(0,0,0,0);
+		z-index: 999;
+		width: 100%;
+		width: 100vw;
+		height: 100%;
+		height: 100vh;
+	}
+
+	&.personal{
+		.ask-drop-list{
+			top: 52px;
+		}
+	}
+	.once{
+		width: 100%;
+		.ask-button{
+			width: 100%;
+			color: map-get($color,400);
+			&:hover{
+			color: map-get($color,500);
+			}
+			.iconfont{
+				margin-right: 20px;
+			}
+		}
+	}
+}
+
+
+/* 过渡的状态 */
+.drop-list-show-enter-active{
+	-webkit-animation: drop-list-on-show .3s ease 1 both;
+	        animation: drop-list-on-show .3s ease 1 both;
+}
+@-webkit-keyframes drop-list-on-show{
+	0%{
+		-webkit-transform: scale(0);
+		        transform: scale(0);
+		opacity: 0;
+	}
+}
+@keyframes drop-list-on-show{
+	0%{
+		-webkit-transform: scale(0);
+		        transform: scale(0);
+		opacity: 0;
+	}
+}
+/* 过渡的状态 */
+.drop-list-show-leave-active{
+	-webkit-animation: drop-list-on-hide .3s cubic-bezier(1.0, 0.5, 0.8, 1.0) 1 both;
+	        animation: drop-list-on-hide .3s cubic-bezier(1.0, 0.5, 0.8, 1.0) 1 both;
+}
+
+@-webkit-keyframes drop-list-on-hide{
+	100%{
+		-webkit-transform: scale(0);
+		        transform: scale(0);
+		opacity: 0;
+	}
+}
+
+@keyframes drop-list-on-hide{
+	100%{
+		-webkit-transform: scale(0);
+		        transform: scale(0);
+		opacity: 0;
+	}
+}

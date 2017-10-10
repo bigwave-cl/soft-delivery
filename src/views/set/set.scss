@@ -1,0 +1,27 @@
+/*
+* @Author: askMeWhy
+* @Date:   2017-09-29 10:25:25
+* @Last Modified by:   smile
+* @Last Modified time: 2017-09-30 17:51:18
+*/
+
+@import '~@/styles/mixins', '~@/styles/variables';
+.ask-set-box{
+	height: 100%;
+	width: 100%;
+	.ask-set-container{
+		height: calc( 100% - 180px);
+	}
+}
+.abnormal-button{
+	.ask-button{
+		color: map-get($color,500);
+		i.abnormal{
+			border: 1px solid map-get($color,500);
+			border-radius: 3px;
+			padding: 0 8px;
+			margin-right: 5px;
+			vertical-align: middle;
+		}
+	}
+}

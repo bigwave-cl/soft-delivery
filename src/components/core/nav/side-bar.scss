@@ -1,0 +1,13 @@
+/*
+* @Author: askMeWhy
+* @Date:   2017-09-25 11:01:13
+* @Last Modified by:   smile
+* @Last Modified time: 2017-09-25 18:12:01
+*/
+@import '~@/styles/mixins','~@/styles/variables';
+
+.side-bar{
+	width: 100%;
+	height: 100%;
+	background-color: map-get($color,100S);
+}

@@ -1,0 +1,70 @@
+/*
+* @Author: askMeWhy
+* @Date:   2017-09-28 17:30:53
+* @Last Modified by:   smile
+* @Last Modified time: 2017-09-28 18:40:26
+*/
+
+@import '~@/styles/mixins', '~@/styles/variables';
+.ask-option-bar{
+	width: 100%;
+	overflow: hidden;
+	padding: 24px 0;
+	.swiper-slide-set{
+		-webkit-box-flex: 0;
+	    -ms-flex: 0 0 250px;
+	        flex: 0 0 250px;
+		width: 250px;
+		height: 132px;
+		&:nth-child(6n+1){
+			background-color: map-get($tab,100);
+		}
+		&:nth-child(6n+2){
+			background-color: map-get($tab,200);
+		}
+		&:nth-child(6n+3){
+			background-color: map-get($tab,300);
+		}
+		&:nth-child(6n+4){
+			background-color: map-get($tab,400);
+		}
+		&:nth-child(6n+5){
+			background-color: map-get($tab,500);
+		}
+		&:nth-child(6n+6){
+			background-color: map-get($tab,600);
+		}
+		.bar-box{
+			width: 100%;
+			height: 100%;
+			.ask-button{
+				width: 100%;
+				height: 100%;
+				.button-text{
+					display: block;
+					width: 100%;
+					height: 100%;
+					@include flexLayout(flex,normal,center);
+					i.iconfont{
+						font-size: 4.8rem;
+						-webkit-box-flex: 0;
+						    -ms-flex: 0 0 auto;
+						        flex: 0 0 auto;
+						color: map-get($color,200);
+					}
+					img{
+						width: 48px;
+					}
+					span{
+						-webkit-box-flex: 1;
+						    -ms-flex: 1 0 auto;
+						        flex: 1 0 auto;
+						font-size: 3.6rem;
+						text-align: center;
+						color: map-get($color,200);
+					}
+				}
+			}
+		}
+	}
+}

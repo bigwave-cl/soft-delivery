@@ -1,0 +1,51 @@
+/*
+* @Author: askMeWhy
+* @Date:   2017-09-29 10:48:00
+* @Last Modified by:   smile
+* @Last Modified time: 2017-09-29 16:30:33
+*/
+
+@import '~@/styles/mixins', '~@/styles/variables';
+.set-tab-title {
+	width: 100%;
+	padding: 10px 0;
+	border-bottom: 1px solid map-get($color, 200S1);
+	@include flexLayout(flex, justify, center);
+	.bar-list {
+		@include flexLayout(flex, normal, center);
+		.bar-li {
+			margin: 0 10px;
+			-webkit-box-flex: 0;
+			-ms-flex: 0 0 auto;
+			flex: 0 0 auto;
+			&:last-child {
+				margin-right: 0;
+			}
+			&:first-child {
+				margin-left: 0;
+			}
+			.ask-button {
+				font-size: 1.8rem;
+				width: 100%;
+				min-width: auto;
+				height: 100%;
+			}
+			&.active {
+				.ask-button {
+					color: map-get($color, 500);
+				}
+			}
+		}
+	}
+	.mutual-list {
+		@include flexLayout(flex, right, center);
+		.mutual-li {
+			font-size: 1.4rem;
+			margin: 0 18px;
+			color: map-get($color, 400D3);
+			-webkit-box-flex: 0;
+			-ms-flex: 0 0 auto;
+			flex: 0 0 auto;
+		}
+	}
+}

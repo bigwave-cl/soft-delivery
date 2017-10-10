@@ -1,0 +1,35 @@
+@import '~@/styles/mixins','~@/styles/variables';
+
+nav{
+	width: 100%;
+	width: 100vw;
+	background-color: map-get($color,700);
+	.esp-nav{
+		@include flexLayout(flex,center,normal);
+		padding: 0;
+		.en-li{
+			font-size: 1.8rem;
+			color: map-get($color,200);
+			padding: 12px 12px;
+			-webkit-transition: color .3s linear;
+			transition: color .3s linear;
+			cursor: pointer;
+			a{
+				font-size: 1.8rem;
+				color: map-get($color,200);
+				text-decoration: none;
+			}
+			&:hover,
+			&:hover a,
+			&.active,
+			&.active a{
+				color: map-get($color,300);
+				-webkit-transition: color .3s linear;
+				transition: color .3s linear;
+			}
+			&.right{
+				margin-left: auto;
+			}
+		}
+	}
+}

@@ -1,0 +1,48 @@
+/*
+* @Author: askMeWhy
+* @Date:   2017-09-25 16:13:27
+* @Last Modified by:   smile
+* @Last Modified time: 2017-09-26 15:38:03
+*/
+@import '~@/styles/mixins','~@/styles/variables';
+.breadcrumbs{
+	width: 100%;
+	.bc-items{
+		width: 100%;
+		@include flexLayout(flex,normal,center);
+		-webkit-box-orient:horizontal;
+		-webkit-box-direction:normal;
+		    -ms-flex-flow:row wrap;
+		        flex-flow:row wrap;
+		        background-color: map-get($color,200);
+		        padding: 8px 16px;
+		.bc-item{
+			-webkit-box-flex: 0;
+			    -ms-flex: 0 0 auto;
+			        flex: 0 0 auto;
+			        margin: 0 10px;
+			        position: relative;
+			span,
+			a{
+				color: map-get($color,400);
+				text-decoration: none;
+				font-size: 1.8rem;
+			}
+			a{
+				color: map-get($color,500);
+			}
+			&:not(:last-child)::after{
+				content:'/';
+				display: block;
+				width: 2px;
+				height: 22px;
+				position: absolute;
+				top: 50%;
+				margin-top: -11px;
+				right: -8px;
+				color: map-get($color,400);
+				font-size: 1.6rem;
+			}
+		}
+	}
+}

@@ -1,0 +1,77 @@
+/*
+* @Author: askMeWhy
+* @Date:   2017-10-09 10:20:17
+* @Last Modified by:   smile
+* @Last Modified time: 2017-10-10 11:05:34
+*/
+
+@import '~@/styles/mixins', '~@/styles/variables';
+.add-lock-modal-box {
+	width: 100%;
+	.alm-group {
+		width: 100%;
+		@include flexLayout(flex, normal, center);
+		padding: 10px 0;
+		.alm-title {
+			font-size: 1.6rem;
+			margin-right: 10px;
+		}
+		.alm-body {
+			-webkit-box-flex: 1;
+			-ms-flex: 1 0 auto;
+			flex: 1 0 auto;
+			input {
+				width: 100%;
+			}
+		}
+	}
+}
+
+#lock_area_input{
+	width: 100%;
+	font-size: 1.6rem;
+	color: map-get($color,400D3);
+	border: 1px solid map-get($color,400);
+	padding: 8px;
+	border-radius: 3px;
+	outline: none;
+}
+.ask-modal.area {
+	width: 100%;
+	min-height: 200px;
+	height: 75%;
+	height: 75vh;
+	.map-tip{
+		width: 100%;
+		text-align: center;
+		font-size: 1.6rem;
+		background-color: map-get($color,200);
+		color: map-get($color,400D3);
+		z-index: 5;
+	}
+	.ask-modal-body{
+		width: 100%;
+		height: calc(100% - 54px - 69px);
+		position: relative;
+		#lock_area_map{
+			width: 100%;
+			height: 100%;
+			position: relative;
+			z-index: 3;
+		}
+		.button-group{
+			position: absolute;
+			bottom: 20px;
+			left: 50%;
+			-webkit-transform:translateX(-50%);
+	        transform:translateX(-50%);
+			z-index: 5;
+			.ask-button{
+				background-color: map-get($color,500);
+				color: map-get($color,200);
+				padding: 12px 24px;
+				border-radius: 4px;
+			}
+		}
+	}
+}

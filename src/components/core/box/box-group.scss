@@ -1,0 +1,27 @@
+/*
+* @Author: askMeWhy
+* @Date:   2017-09-27 18:16:55
+* @Last Modified by:   smile
+* @Last Modified time: 2017-09-28 10:40:06
+*/
+
+@import '~@/styles/mixins', '~@/styles/variables';
+.ask-box-group {
+	width: 100%;
+	@include flexLayout(flex, normal, center);
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-ms-flex-flow: row wrap;
+	flex-flow: row wrap;
+	.ask-box-list {
+		width: 30%;
+		margin: 2.5% 5% 0;
+		border: 1px solid map-get($color,400S1);
+		-webkit-box-flex: 0;
+		    -ms-flex: 0 0 30%;
+		        flex: 0 0 30%;
+		&:nth-child(3n+1), &:nth-child(3n+3) {
+			margin: 2.5% 0 0;
+		}
+	}
+}
