@@ -9,7 +9,7 @@
 	</div>
 </template>
 <script>
-import Swiper from 'swiper';
+import Swiper from '@/../node_modules/swiper/dist/js/swiper.js';
 import '@/../node_modules/swiper/dist/css/swiper.min.css';
 export default {
 	props: {
