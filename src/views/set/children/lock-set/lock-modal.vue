@@ -14,19 +14,19 @@
 				<div class="alm-group">
 					<div class="alm-title">时间段名</div>
 					<div class="alm-body">
-						<input type="text" :value="time.name">
+						<input type="text" :value="time.name" placeholder="请输入时间段名称">
 					</div>
 				</div>
 				<div class="alm-group">
 					<div class="alm-title">起始时间</div>
 					<div class="alm-body">
-						<input type="text" :value="time.begin">
+						<ask-picker :value="time.begin" @picker="beginPicker"></ask-picker>
 					</div>
 				</div>
 				<div class="alm-group">
 					<div class="alm-title">结束时间</div>
 					<div class="alm-body">
-						<input type="text" :value="time.end">
+						<ask-picker :value="time.end" @picker="endPicker"></ask-picker>
 					</div>
 				</div>
 			</div>
@@ -45,6 +45,7 @@
 </template>
 <style src="./lock-modal.scss" lang="scss"></style>
 <script>
+import moment from 'moment/moment.js';
 import { amapLoad, askDialogConfirm, askDialogToast } from '@/utils';
 import { MAPKEY,MAPCENTER} from '@/config.js';
 export default {
@@ -85,9 +86,9 @@ export default {
 	data() {
 		return {
 			time: {
-				name: '时间段1',
-				begin: '2017-10-09 10:18:20',
-				end: '2017-10-20 10:18:20'
+				name: '',
+				begin: '',
+				end: ''
 			},
 			area: {
 				list: [],
@@ -107,6 +108,12 @@ export default {
 		},
 		iconClose() {
 			this.$emit('onclose');
+		},
+		beginPicker(time){
+			this.time.begin = time;
+		},
+		endPicker(time){
+			this.time.end = time;
 		},
 		initAmap() {
 			if(this.type == 'time') return;

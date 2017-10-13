@@ -62,7 +62,6 @@ export default {
 		}
 	},
 	created() {
-		console.log(this.defaultActive);
 		this.rootMain.addBread({
 			name: this.$route.query.name,
 			link: ''

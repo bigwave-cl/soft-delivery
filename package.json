@@ -12,6 +12,7 @@
   "dependencies": {
     "axios": "^0.16.2",
     "mo-js": "^0.288.2",
+    "moment": "^2.19.0",
     "qs": "^6.5.1",
     "swiper": "^4.0.0",
     "vee-validate": "^2.0.0-rc.18",

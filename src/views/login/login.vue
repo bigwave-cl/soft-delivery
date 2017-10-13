@@ -91,6 +91,7 @@ import { User } from '@/services';
 				if(user.user != 'none'){
 					this.model.user = user.user.user;
 					this.model.pass = user.user.pass;
+					this.model.remember = true;
 				}
 			}
 		}

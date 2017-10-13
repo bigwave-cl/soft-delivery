@@ -1,8 +1,8 @@
 /*
 * @Author: askMeWhy
 * @Date:   2017-09-25 16:30:44
-* @Last Modified by:   smile
-* @Last Modified time: 2017-09-26 16:17:58
+* @Last Modified by:   bigWave
+* @Last Modified time: 2017-10-11 15:49:07
 */
 @import '~@/styles/mixins','~@/styles/variables';
 .ask-drop-down{
@@ -32,7 +32,10 @@
 		height: 100%;
 		height: 100vh;
 	}
+	.ask-button.no{
 
+		text-transform:none;
+	}
 	&.personal{
 		.ask-drop-list{
 			top: 52px;

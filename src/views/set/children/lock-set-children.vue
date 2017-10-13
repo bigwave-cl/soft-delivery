@@ -32,6 +32,7 @@
 	</set-tab-group>
 </template>
 <script>
+import moment from 'moment/moment.js';
 import { setComponent } from '@core/box-set';
 import { lockComponent } from './lock-set';
 import { addLockModal } from './lock-set/lock-modal.js';
@@ -82,8 +83,8 @@ export default {
 				setData.addLockTime({
 				    "imei": this.$route.params.boxId, 
 				    "name": vm.time.name,
-				    "start_time": vm.time.begin, 
-				    "end_time": vm.time.end
+				    "start_time": moment(vm.time.begin).unix(), 
+				    "end_time": moment(vm.time.end).unix()
 				}).then(r=>{
 					this.rootMain.loadingHide();
 					vm.close();

@@ -1,8 +1,8 @@
 /*
 * @Author: askMeWhy
 * @Date:   2017-09-25 16:13:27
-* @Last Modified by:   smile
-* @Last Modified time: 2017-10-10 14:24:19
+* @Last Modified by:   bigWave
+* @Last Modified time: 2017-10-11 14:25:08
 */
 
 @import '~@/styles/mixins', '~@/styles/variables';
@@ -23,7 +23,7 @@
 		flex-flow: row wrap;
 		.bc-item {
 			position: relative;
-			margin: 0 10px;
+			margin: 0;
 			-webkit-box-flex: 0;
 			-ms-flex: 0 0 auto;
 			flex: 0 0 auto;
@@ -35,17 +35,8 @@
 			a {
 				color: map-get($color, 500);
 			}
-			&:not(:last-child)::after {
-				font-size: 1.6rem;
-				position: absolute;
-				top: 50%;
-				right: -8px;
-				display: block;
-				width: 2px;
-				height: 22px;
-				margin-top: -11px;
-				content: '/';
-				color: map-get($color, 400);
+			span.interval{
+				margin: 0 5px;
 			}
 		}
 	}

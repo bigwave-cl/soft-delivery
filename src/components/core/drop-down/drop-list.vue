@@ -13,6 +13,14 @@
 							</ask-button>
 						</router-link>
 					</template>
+					<template v-else-if="item.callback">
+						<ask-button @ask-click="clickList(item)">
+							<span :text="item.name" class="button-text">
+								<i class="iconfont" :class="[item.icon?item.icon:'one']"></i>
+								{{item.name}}
+							</span>
+						</ask-button>
+					</template>
 					<template v-else>
 						<ask-button>
 							<span :text="item.name" class="button-text">
@@ -33,6 +41,11 @@ export default {
 		list: {
 			type: Array,
 			default: []
+		}
+	},
+	methods:{
+		clickList(item){
+			if(item.callback) item.callback();
 		}
 	}
 }

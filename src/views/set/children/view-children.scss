@@ -1,8 +1,8 @@
 /*
 * @Author: askMeWhy
 * @Date:   2017-10-10 10:36:28
-* @Last Modified by:   smile
-* @Last Modified time: 2017-10-10 10:38:43
+* @Last Modified by:   bigWave
+* @Last Modified time: 2017-10-11 17:57:38
 */
 
 @import '~@/styles/mixins', '~@/styles/variables';
@@ -10,10 +10,157 @@
 	position: relative;
 	width: 100%;
 	height: 100%;
+	.location-marker {
+		line-height: 45px;
+		position: relative;
+		width: 45px;
+		height: 45px;
+		text-align: center;
+		border-radius: 100%;
+		background-color: map-get($color, 500S2);
+		&::after {
+			position: absolute;
+			z-index: -1;
+			top: 95%;
+			left: 50%;
+			display: block;
+			width: 0;
+			height: 0;
+			margin-left: -6px;
+			content: '';
+			border-top: 18px solid map-get($color, 500S2);
+			border-right: 6px solid transparent;
+			border-left: 6px solid transparent;
+		}
+		&::before {
+			position: absolute;
+			z-index: -2;
+			top: 100%;
+			left: 50%;
+			display: block;
+			-webkit-box-sizing: content-box;
+			box-sizing: content-box;
+			width: 16px;
+			height: 16px;
+			margin-top: 8px;
+			margin-left: -12px;
+			content: '';
+			border: 4px solid map-get($color, 200);
+			border-radius: 100%;
+			background-color: map-get($color, 500S1);
+		}
+		i {
+			font-size: 3rem;
+			color: map-get($color, 200);
+		}
+	}
+	.location-query {
+		i {
+			font-size: 3rem;
+			color: map-get($localtion, 100);
+		}
+		&.first {
+			i {
+				color: map-get($localtion, 200);
+			}
+		}
+		&.safe {
+			i {
+				color: map-get($localtion, 300);
+			}
+		}
+	}
 	#view_children {
 		position: relative;
 		z-index: 2;
 		width: 100%;
 		height: 100%;
+	}
+	.location-search {
+		position: absolute;
+		z-index: 3;
+		top: 10px;
+		right: 20px;
+		padding: 5px 10px;
+		border-radius: 4px;
+		background-color: map-get($color, 200);
+		-webkit-box-shadow: 4px 4px 4px map-get($color, 400S1), -4px -4px 4px map-get($color, 400S1);
+		box-shadow: 4px 4px 4px map-get($color, 400S1), -4px -4px 4px map-get($color, 400S1);
+		.ask-button {
+			font-size: 1.4rem;
+			min-width: auto;
+			padding: 10px 16px;
+			color: map-get($color, 200);
+			border-radius: 4px;
+			background-color: map-get($color, 500);
+		}
+		input {
+			font-size: 1.4rem;
+			display: inline-block;
+			width: 160px;
+			padding: 4px 10px;
+			text-align: center;
+			color: map-get($color, 400D3);
+			border: 1px solid map-get($color, 400S1);
+			border-radius: 4px;
+			outline: none;
+			background-color: map-get($color, 200);
+		}
+	}
+	.location-filter {
+		position: absolute;
+		z-index: 3;
+		top: 80px;
+		right: 20px;
+		.ask-button {
+			display: block;
+			width: 38px;
+			min-width: auto;
+			height: 38px;
+			margin-bottom: 10px;
+			padding: 0;
+			border-radius: 4px;
+			background-color: map-get($color, 200);
+			-webkit-box-shadow: 4px 4px 4px map-get($color, 400S1), -4px -4px 4px map-get($color, 400S1);
+			box-shadow: 4px 4px 4px map-get($color, 400S1), -4px -4px 4px map-get($color, 400S1);
+			i {
+				font-size: 2.4rem;
+				&.icon-weizhi {
+					color: map-get($localtion, 100);
+				}
+				&.icon-youxuanluxian {
+					color: map-get($localtion, 200);
+				}
+				&.icon-anquan {
+					color: map-get($localtion, 300);
+				}
+			}
+		}
+	}
+	.location-info {
+		width: 240px;
+		min-height: 20px;
+		padding: 10px;
+		border: 1px solid map-get($color, 400S1);
+		background-color: map-get($color, 200);
+		cursor: pointer;
+		.info-list {
+			width: 100%;
+			.info-li {
+				@include flexLayout(flex, normal, center);
+				padding: 4px 0;
+				.name {
+					font-size: 1.4rem;
+					color: map-get($color, 400D3);
+				}
+				.value {
+					font-size: 1.4rem;
+					color: map-get($color, 400);
+					-webkit-box-flex: 1;
+					-ms-flex: 1 0 auto;
+					flex: 1 0 auto;
+				}
+			}
+		}
 	}
 }

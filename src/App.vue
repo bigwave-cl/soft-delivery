@@ -46,8 +46,9 @@ import sideBarComponent from '@core/nav/side-bar.vue';
 import breadcrumbs from '@core/nav/breadcrumbs.vue';
 import dropDown from '@core/drop-down/drop-down.vue';
 import navTab from '@core/nav-tab/nav-tab.vue';
-import { sideBar } from '@/services';
+import { sideBar,User } from '@/services';
 
+const user = new User();
 export default {
 	name: 'app',
 	components: {
@@ -78,11 +79,9 @@ export default {
 				list: [{
 						name: '退出',
 						icon: 'icon-tuichu',
-						link: '/login'
-					},
-					{
-						name: '设置',
-						icon: 'icon-shezhi'
+						callback(){
+							user.loginOut();
+						}
 					}
 				]
 			}
@@ -110,6 +109,7 @@ export default {
 		},
 		initSideBar(){
 			if(!this.$route.meta.nav || this.list.length!=0) return;
+			this.drop.title = user.user.user;
 			const side = new sideBar();
 			side.getMenus().then(r=>{
 				let menus = r.data.data;

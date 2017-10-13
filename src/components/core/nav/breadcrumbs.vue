@@ -17,6 +17,7 @@
 						<template v-else>
 							<router-link :to="item.link" v-text="item.name"></router-link>
 						</template>
+						<span class="interval" v-if="breadcrumb.length !== ($i+1)">/</span>
 					</li>
 				</template>
 			</ul>

@@ -1,6 +1,6 @@
 <template>
 	<div class="ask-drop-down">
-		<ask-button @ask-click="toggleSub($event)">
+		<ask-button @ask-click="toggleSub($event)" class="no">
 			<span class="button-text">
 				<span v-text="drop.title"></span>
 				<i class="iconfont icon-arrRight-fill"></i>

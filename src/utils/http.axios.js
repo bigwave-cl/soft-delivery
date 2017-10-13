@@ -19,18 +19,13 @@ export default async (options) => {
 		opt[key] =  options[key];
 	})
 	opt.method = opt.method.toUpperCase();
-	// Object.defineProperties(opt.data, {
-	// 	"wid": {
-	// 		value: config.W_ID,
-	// 		writable: false,
-	// 		enumerable: true
-	// 	},
-	// 	"access_token": {
-	// 		value: config.AUTH_TOKEN,
-	// 		writable: false,
-	// 		enumerable: true
-	// 	}
-	// });
+	Object.defineProperties(opt.data, {
+		"fromtype": {
+			value: 3,
+			writable: false,
+			enumerable: true
+		}
+	});
 
 	//添加一个请求拦截器
 	axios.interceptors.request.use(function(config) {

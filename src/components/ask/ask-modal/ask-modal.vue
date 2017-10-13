@@ -2,7 +2,7 @@
 	<transition name="ask-modal-door" @after-enter="afterEnter" @after-leave="afterLeave">
 		<div class="ask-modal" v-if="show" :style="style" :class="theme">
 			<div class="ask-visually-hidden"></div>
-			<div class="ask-modal-header">
+			<div class="ask-modal-header" v-if="title && !closeIcon">
 				<div class="ask-modal-title" v-if="title">
 					{{title}}
 				</div>
@@ -90,7 +90,7 @@ export default {
 		}
 	},
 	mounted(){
-		askOverlay.open(this);
+		if(this.show) askOverlay.open(this);
 	},
 	destroyed() {
 		this.$nextTick(function() {

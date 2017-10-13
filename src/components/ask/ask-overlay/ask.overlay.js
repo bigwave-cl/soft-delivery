@@ -62,6 +62,7 @@ const askOverlay = {
 		// document.body.style.position = "fixed";
 		// document.body.style.width = "100vw";
 		// document.body.style.height = "100vh";
+		// 
 		document.body.style.overflow = 'hidden';
 		document.body.appendChild(vm.$el);
 		vm.show = true;

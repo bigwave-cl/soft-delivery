@@ -5,15 +5,15 @@ import {
 	localStorage
 } from '@/utils';
 
+import router from '@/router';
 import * as config from '@/config.js';
 
 const baseURL = config.BASE_URL;
 export class User{
-
-	get user(){ return JSON.parse(localStorage.getItem('user')) || 'none'; }
+	get user(){ return JSON.parse(sessionStorage.getItem('user')) || JSON.parse(localStorage.getItem('user')) || 'none'; }
 	set user(value){
 		this.del('user');
-		localStorage.setItem('user',value);
+		sessionStorage.setItem('user',value);
 	}
 
 	get auth(){ return sessionStorage.getItem('auth') || 'none'};
@@ -21,7 +21,10 @@ export class User{
 		this.del('auth');
 		sessionStorage.setItem('auth',value);
 	}
-
+	saveUser(value){
+		this.del('user');
+		localStorage.setItem('user',value);
+	}
 	login(opt){
 		let option = {
 			username: opt.user,
@@ -33,6 +36,7 @@ export class User{
 
 	loginOut(){
 		this.delLogin();
+		router.push({path: '/login'});
 	}
 
 	del(payload){
@@ -42,7 +46,8 @@ export class User{
 		if(ps) sessionStorage.removeItem(payload);
 	}
 	delLogin(){
-		this.del('user');
+		let ps = sessionStorage.getItem('user');
+		if(ps) sessionStorage.removeItem('user');
 		this.del('auth');
 	}
 
@@ -60,8 +65,9 @@ export class User{
 					return;
 				}
 				this.auth = r.data.data.access_token;
+				this.user = `{"user":"${options.username}","pass":"${options.password}"}`;
 				if(remember){
-					this.user = `{"user":"${options.username}","pass":"${options.password}"}`;
+					this.saveUser(`{"user":"${options.username}","pass":"${options.password}"}`);
 				}
 			}
 		});
@@ -319,6 +325,22 @@ export class SetData{
 		}
 		return this._ajax('post',options);
 	}
+	getRealLocation(imei){
+		let options = {
+			"access_token":this.user.auth,
+			"method":"device.now",
+			"imei":imei
+		}
+		return this._ajax('post',options);
+	}
+	getAllLocation(opt){
+		let options = {
+			"access_token":this.user.auth,
+			"method":"device.info"
+		}
+		options = Object.assign(options,opt);
+		return this._ajax('post',options);
+	}
 	_ajax(method,options){
 		options = options || {};
 		return ajax({
@@ -332,57 +354,6 @@ export class SetData{
 					askDialogToast({msg:r.data.message? r.data.message:'接口请求失败',time:2000,class:'danger'});
 					return;
 				}
-			}
-		});
-	}
-}
-
-export class Product {
-	all(){
-		return this._ajax('get')
-	}
-	once(id){
-		return this._ajax('get',{},id);
-	}
-	create(options){
-		return this._ajax('post',options);
-	}
-	update(options){
-		return this._ajax('put',options,options.id);
-	}
-	del(id){
-		return this._ajax('delete',{},id);
-	}
-	_ajax(method,options,id){
-		options = options || {};
-		return ajax({
-			method: method,
-			url:`${baseURL}/products${id !== void 0 ? '/'+id:''}`,
-			data: options,
-			before: (r) => {
-				console.log('before');
-			},
-			complete: (r) => {
-				console.log('complete');
-			}
-		});
-	}
-}
-export class Manufacturer{
-	all(){
-		return this._ajax('get');
-	}
-	_ajax(method,options,id){
-		options = options || {};
-		return ajax({
-			method: method,
-			url:`${baseURL}/products${id !== void 0 ? '/'+id:''}`,
-			data: options,
-			before: (r) => {
-				console.log('before');
-			},
-			complete: (r) => {
-				console.log('complete');
 			}
 		});
 	}
